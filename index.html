@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+
+    <!-- Js -->
+    <script type="text/javascript" src="let51url.js"></script>
+    <script type="text/javascript" src="js/rely/jquery.js"></script>
+    <script type="text/javascript" src="js/rely/echarts.min.js"></script>
+    <script type="text/javascript" src="js/rely/echarts-liquidfill.min.js"></script>
+    <script type="text/javascript" src="js/51js/let51.js"></script>
+    <script type="text/javascript" src="js/let.js"></script>
+    <script language="Javascript" src="js/rely/uiduck.js"></script>
+    <script language="Javascript" src="js/rely/json2.js"></script>
+
+
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/ai.css">
+    <link href="css/uiduck.css" type="text/css" rel="stylesheet">
+    <link href="css/table.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/checkboxaaa.css">
+    <link rel="stylesheet" type="text/css" href="css/checkboxbbb.css">
+
+
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container-fulid">
+
+        <!-- 导航栏部分 -->
+
+
+        <nav class="navbar">
+
+            <div class="mod-header">
+
+                <div class="layout clearfix">
+                    <a href="#" class="mod-header-logo nav-lin0"></a>
+
+                    <div class="mod-header-nav ">
+                        <ul id="jmod-header-nav">
+                            <li id="nav-header-hr" class="top-cat nav-lin1"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;空气&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin2"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;水质&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin3"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;光强&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin4"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;舒适&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin5"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;营养&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin6"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;健身&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin7"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;防疫&nbsp;&nbsp;</h2>
+                            </li>
+                            <li id="nav-header-hr" class="top-cat nav-lin8"><i class="fa "></i>
+                                <h2>&nbsp;&nbsp;人员&nbsp;&nbsp;</h2>
+                            </li>
+                        </ul>
+                        <i class="jmod-nav-slider slider hidden" style="transform: translateX(0px);"></i>
+                    </div>
+
+                    <div class='mod-header-right' id='divT'></div>
+                    <div class="mod-header-weather">
+                        <div id="weather" class="sunny"></div>
+                    </div>
+
+                    <!-- {{-- <div class="mod-header-user">
+        <a href="#" target="_blank" class="try jmod-header-try">控制台</a>
+        <a href="#" target="_blank" class="console jmod-header-console hidden">控制台</a>
+      </div> --}} -->
+                </div>
+
+            </div>
+
+            <div class="banner jmod_banner">
+                <div class="ban cur" style="background-color:#ff0;background-image:url('自定义Banner图片地址');height: 62px;">
+                </div>
+
+        </nav>
+
+        <!-- 导航栏部分 -->
+
+
+
+
+        <!-- 网页主体部分 -->
+
+
+
+        <div class="all" style="padding-right: 0px; padding-left:0px; margin-left:0px; margin-right:0px;z-index: 10;">
+
+
+            <!-- {{--coxno   用来加载51vr --}} -->
+            <div class="boxno">
+                <div id="player"
+                    style="padding-right: 0px; padding-left:0px; margin-left:0px; margin-right:0px;z-index: 10;"></div>
+            </div>
+            <div id="divTop">
+
+                <div class="toptap"> 时间与现实同步 <label> <input class="mui-switch" type="checkbox" checked="true"
+                            id="istimesync"> </label> </div>
+
+
+                <div calss="weatherimgcontainer">
+                    <img src="./img/weather/morning.png" class="timeimg" sid="8:00" title="早晨"><img>
+                    <img src="./img/weather/sunny.png" class="timeimg" sid="13:00" title="中午"
+                        style="margin-top: -25px;"><img>
+                    <img src="./img/weather/dusk.png" class="timeimg" sid="17:00" title="傍晚"><img>
+                    <img src="./img/weather/night.png" class="timeimg" sid="23:00" title="晚上"><img>
+
+                </div>
+                <div class="toptap"> 天气与现实同步 <label> <input class="mui-switch" type="checkbox" checked="true"
+                            id="isweathersync"> </label> </div>
+                <div calss="weatherimgcontainer">
+                    <img src="./img/weather/sunny.png" class="weatherimg" sid="0" title="晴天"><img>
+                    <img src="./img/weather/cloudy.png" class="weatherimg" sid="1" title="多云"
+                        style="margin-top: -25px;"><img>
+                    <img src="./img/weather/rain.png" class="weatherimg" sid="2" title="下雨"><img>
+                    <img src="./img/weather/snow.png" class="weatherimg" sid="3" title="下雪"><img>
+                </div>
+                <div class="toptap"> 自动导览模式 <label> <input class="mui-switch" type="checkbox" id="isautoroaming">
+                    </label> </div>
+
+            </div>
+
+
+            <!-- {{--maincontain 用于加载echart--}} -->
+            <div class="maincontain maincontain_zhuye">
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">空气</div>
+                            <div class="allnav" id="e111"></div>
+                            <div class="boxfoot boxfoot1"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">水质</div>
+
+                            <div id="shuizhiimg" style="position:relative; width:100%; height:100%; ">
+                                <div class="allnav" id="e222"></div>
+                            </div>
+                            <div class="boxfoot boxfoot2"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">光强</div>
+                            <div class="allnav" id="e333"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+
+                            <div class="alltitle">舒适</div>
+
+
+
+                            <div id="shushiimg" style="position:relative; width:200%; height:100%; ">
+                                <div class="allnav" id="e444"></div>
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+
+
+                        <div class="buttonlist">
+                            <button class="controlbutton  showclick1"><span class="tooltiptext">室内/室外</span></button>
+                            <button class="controlbutton  showclick2"><span class="tooltiptext">漫游场景</span></button>
+                            <button class="controlbutton  showclick3"><span class="tooltiptext">远景</span></button>
+                            <button class="controlbutton  showclick4"><span class="tooltiptext">灯光控制</span></button>
+                            <button class="controlbutton  showclick5"><span class="tooltiptext">窗帘控制</span></button>
+
+                            <!-- <button class="controlbutton  showclick6"><span class="tooltiptext">空调系统</span></button>
+                            <button class="controlbutton  showclick7"><span class="tooltiptext">热力图</span></button> -->
+
+                        </div>
+                        <div class="warning">
+                            <div class="tooltiptext">温度偏高</div>
+                            <div class="tooltiptext">湿度偏高</div>
+                            <div class="tooltiptext">湿度偏高</div>
+                        </div>
+
+                        <div class="boxfoot" style=" text-align: left;left:3.5rem;">报警管理</div>
+
+
+                        <!-- <style type="text/css">#backImgshow{background: url("../img/owell2dd.png");}</style>
+                {{-- 此处height可以调整3d框图的高度 --}}
+                        <div class="boxall_3d" id="backImgshow" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                            <div class="alltitle">全景地图</div>
+
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                        <div class="boxallright">
+                            <div class="alltitle">营养</div>
+                            <div class="allnav" id="e666"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">健身</div>
+                            <div class="allnav" id="e777"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">防疫</div>
+                            <div class="allnav" id="e888"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">人员密度</div>
+                            <div class="allnav" id="e999"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="maincontain maincontain_kongqi" style="margin-top:50px">
+
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">实时数据</div>
+                            <div class="allnav" id="kechart0"></div>
+                            <div class="boxfoot boxfoot1"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">二氧化碳</div>
+                            <div class="allnav" id="kechart1"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">可挥发化合物</div>
+                            <div class="allnav" id="kechart2"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">湿度</div>
+                            <div class="allnav" id="kechart3"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <button class="buttoncheck" style="background-color:#158fd587" onclick="kqyemiancheck(1)"> 采集
+                        </button>
+                        <button class="buttoncheck" onclick="kqyemiancheck(2)"> 控制</button>
+
+
+                        <!--   <style type="text/css">#backImgkq{background: url("../img/owell2dd.png");}</style>
+                {{-- 此处height可以调整3d框图的高度 --}}
+                        <div class="boxall_3d" id="backImgkq" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="kechart555"></div>
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                        <div class="warning">
+                            <div class="tooltiptext">温度偏高</div>
+                            <div class="tooltiptext">湿度偏高</div>
+                            <div class="tooltiptext">湿度偏高</div>
+                        </div>
+
+                        <div class="boxfoot" style=" text-align: left;left:3.5rem;">报警管理</div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+                        <div class="boxallright">
+                            <div class="alltitle">温度</div>
+                            <div class="allnav" id="kechart4"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">PM2.5</div>
+                            <div class="allnav" id="kechart5"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">甲醛</div>
+                            <div class="allnav" id="kechart6"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">报警信息</div>
+
+
+                            <div class="allnav"></div>
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="maincontain maincontain_kongqi2" style="margin-top:50px">
+
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">新风</div>
+
+
+                            <div class="shubox2" style="font-weight:bold">
+                                <div class='henbox'></div>
+                                <div class='henbox'>新风量</div>
+                                <div class='henbox'>模式</div>
+                                <div class='henbox'>运行时间</div>
+
+                                <div class='henbox'>滤网维护</div>
+                                <div class='henbox'></div>
+
+                            </div>
+                            <div class="shubox5">
+                                <div class='henbox'>风机1</div>
+                                <div class='henbox2' style="color:blue;">30</div>
+
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio221" checked onclick="kqcontrol221(1)">
+                                        <label><i class="default"></i> 低</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio221" onclick="kqcontrol221(2)">
+                                        <label><i class="default"></i> 中</label>
+                                    </div>
+                                    <div class="pretty circle danger" onclick="kqcontrol221(3)">
+                                        <input type="radio" name="radio221">
+                                        <label><i class="default"></i> 高</label>
+                                    </div>
+                                </div>
+
+                                <div class='henbox'>3时6分5秒</div>
+
+                                <div class='henbox'>2020年3月1日</div>
+                                <div class='henbox'></div>
+
+
+                            </div>
+                            <div class="shubox5">
+                                <div class='henbox'>风机2</div>
+                                <div class='henbox2' style="color:blue;"> 30
+                                </div>
+
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio224" checked onclick="kqcontrol222(1)">
+                                        <label><i class="default"></i> 低</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio224" onclick="kqcontrol222(2)">
+                                        <label><i class="default"></i> 中</label>
+                                    </div>
+                                    <div class="pretty circle danger" onclick="kqcontrol222(3)">
+                                        <input type="radio" name="radio224">
+                                        <label><i class="default"></i> 高</label>
+                                    </div>
+                                </div>
+
+                                <div class='henbox'>
+                                </div>
+
+
+                                <div class='henbox'>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                        <div class="boxall">
+
+                            <div class="alltitle">空调</div>
+
+
+                            <div class="shubox2" style="font-weight:bold">
+                                <div class='henbox'></div>
+                                <div class='henbox'>会议室</div>
+                                <div class='henbox'>办公室</div>
+                                <div class='henbox'>大厅</div>
+
+                                <div class='henbox'>健身房</div>
+                                <div class='henbox'></div>
+
+                            </div>
+                            <div class="shubox5">
+                                <div class='henbox'>开关</div>
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio227" checked onclick="kqcontrol223(1)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio227" onclick="kqcontrol223(2)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                </div>
+
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio230" checked onclick="kqcontrol223(1)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio230" onclick="kqcontrol223(2)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                </div>
+
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio233" checked onclick="kqcontrol224(1)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio233" onclick="kqcontrol224(2)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                </div>
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio226" checked onclick="kqcontrol224(1)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio226" onclick="kqcontrol224(2)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                </div>
+                                <div class='henbox'></div>
+
+
+                            </div>
+                            <div class="shubox6">
+                                <div class='henbox'>温度</div>
+
+                                <div class='henbox temp227'>30
+
+                                </div>
+
+
+                                <div class='henbox temp230'>25
+
+                                </div>
+
+                                <div class='henbox temp233'>26
+
+                                </div>
+
+
+                                <div class='henbox temp236'>30
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="shubox6">
+                                <div class='henbox'>温度调节</div>
+
+                                <div class='henbox'>
+                                    <button id="add227" class="addbutton">＋</button>
+                                    <button id="reduce227" class="addbutton">-</button>
+                                </div>
+
+
+                                <div class='henbox '>
+                                    <button id="add230" class="addbutton">＋</button>
+                                    <button id="reduce230" class="addbutton">-</button>
+                                </div>
+
+                                <div class='henbox '>
+                                    <button id="add233" class="addbutton">＋</button>
+                                    <button id="reduce233" class="addbutton">-</button>
+                                </div>
+
+
+                                <div class='henbox '>
+                                    <button id="add236" class="addbutton">＋</button>
+                                    <button id="reduce236" class="addbutton">-</button>
+                                </div>
+
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <!--增加的代码：喷头控制   于    窗帘控制     方子昂--->
+                        <div class="boxall">
+                            <!-- 喷头控制--->
+                            <div class="alltitle">综合控制</div>
+                            <div class="shubox2" style="font-weight:bold">
+                                <div class='henbox'></div>
+                                <div class='henbox'>加湿器</div>
+                                <div class='henbox'></div>
+
+                                <div class='henbox'>光线调节</div>
+                                <div class='henbox'></div>
+                            </div>
+                            <div class="shubox5">
+                                <div class='henbox'>开关</div>
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio230" onclick="kqcontrol230(1)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio230" checked onclick="kqcontrol230(2)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                </div>
+                                <div class='henbox'>状态调节</div>
+                                <div class='henbox'>
+                                    <button id="clOn" class="addbutton" onclick="clOn()">
+                                    </button>
+                                    <button id="clUp" class="addbutton" onclick="clUp()">+</button>
+                                    <button id="clDown" class="addbutton" onclick="clDown()">-</button>
+                                    <button id="clOff" class="addbutton" onclick="clOff()">></button>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <!--  以上是增加代码块 --->
+
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <button class="buttoncheck" onclick="kqyemiancheck(1)"> 采集</button>
+                        <button class="buttoncheck" style="background-color:#158fd587" onclick="kqyemiancheck(2)"> 控制
+                        </button>
+                        <!-- <style type="text/css">#backImgkq{background: url("../img/owell2dd.png");}</style>
+       
+                        <div class="boxall_3d" id="backImgkq" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="kechart555"></div>
+                            <div class="boxfoot"></div>
+                        </div>  -->
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="maincontain maincontain_shuizhi">
+
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">水质</div>
+                            <div id="shuizhiimg" style="position:relative; width:100%; height:100%; ">
+                                <div class="allnav" id="sz111"></div>
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">PH值</div>
+                            <div class="allnav" id="sz222"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">浑浊度</div>
+                            <div class="allnav" id="sz333"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                        <div class="boxall">
+                            <div class="alltitle">余氯</div>
+                            <div class="allnav" id="sz444"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-6">
+                        <!-- <style type="text/css">#backImgsz{background: url("../img/owell2dd.png");}</style>
+            
+                        <div class="boxall_3d" id="backImgsz" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="sz555"></div>
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                        <div class="boxallright">
+                            <div class="alltitle">电导率</div>
+                            <div class="allnav" id="sz666"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">滤芯情况</div>
+                            <div class="allnav" id="sz777"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">建议</div>
+                            <div class="allnav" id="sz888"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">区域</div>
+
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="szbutton(1)"> 茶水间1</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="szbutton(2)">茶水间2</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="szbutton(3)">茶水间3</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="szbutton(4)">办公室</a>
+                            </div>
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="maincontain maincontain_guangqiang">
+
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">光照昼夜节律图</div>
+                            <div class="allnav" id="gechart1"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">会议室（日）</div>
+                            <div class="allnav" id="gechart2">
+
+
+                                <div class="content">
+                                    <div class="div_td">
+                                        室内光强
+                                    </div>
+                                    <div class="div_td">
+                                        室外光强
+                                    </div>
+                                    <div class="div_td" id="shineiguangqiang">
+
+                                    </div>
+                                    <div class="div_td" id="shiwaiguangqiang">
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">办公区1（日）</div>
+                            <div class="allnav" id="gechart3"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                        <div class="boxall">
+                            <div class="alltitle">办公区2（日）</div>
+                            <div class="allnav" id="gechart4"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <!-- <style type="text/css">#backImggq{background: url("../img/owell2dd.png");}</style>
+           
+                        <div class="boxall_3d" id="backImggq" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="gechart5"></div>
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                        <div class="boxallright">
+                            <div class="alltitle">室外光强（周）</div>
+                            <div class="allnav" id="gechart6"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">办公区1（周）</div>
+                            <div class="allnav" id="gechart7"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">窗帘</div>
+
+                            <div class="allnav" id="curtain">
+
+
+
+                                <div class="tab-tab">档位</div>
+                                <div class="tab-menu eightrow">
+                                    <span id="bg"></span>
+                                    <ul id="list">
+                                        <li class="active" type="0">0</li>
+                                        <li type="1">1</li>
+                                        <li type="2">2</li>
+                                        <li type="3">3</li>
+                                        <li type="4">4</li>
+                                        <li type="5">5</li>
+                                        <li type="6">6</li>
+
+
+                                    </ul>
+                                </div>
+                                <div class="tab-tab">开关</div>
+                                <div class="tab-menu tworow">
+                                    <span id="thirdbg"></span>
+                                    <ul id="hourlist">
+                                        <li class="active" type="1">全开</li>
+                                        <li type="2">全关</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">控制</div>
+
+
+                            <div class="shubox2">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+                                <div class='henbox'>允许控制</div>
+                                <div class='henbox'>综合院灯光</div>
+
+                                <div class='henbox'>无线院灯光</div>
+                                <div class='henbox'></div>
+
+                            </div>
+                            <div class="shubox3">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+                                <div class='henbox'>模式</div>
+                                <div class='henbox'>模式</div>
+
+                                <div class='henbox'>模式</div>
+                                <div class='henbox'></div>
+
+
+                            </div>
+                            <div class="shubox4">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio14" checked onclick="gqcontrol1(1);">
+                                        <label><i class="default"></i> 否</label>
+                                    </div>
+
+                                    <div class="pretty circle danger" onclick="gqcontrol1(3);">
+                                        <input type="radio" name="radio14">
+                                        <label><i class="default"></i> 是</label>
+                                    </div>
+                                </div>
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio17" checked onclick="gqcontrol2(1)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio17" onclick="gqcontrol2(2)">
+                                        <label><i class="default"></i> 开 </label>
+                                    </div>
+
+                                </div>
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio171" checked onclick="gqcontrol3(1)">
+                                        <label><i class="default"></i> 关</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio171" onclick="gqcontrol3(2)">
+                                        <label><i class="default"></i> 开</label>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="boxfoot"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="maincontain maincontain_shushi">
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">舒适</div>
+
+                            <div id="shushiimg" style=" width:100%; height:100%; ">
+                                <div class="allnav" id="ss111"></div>
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                        <div class="boxall">
+                            <div class="alltitle">噪声（日）</div>
+                            <div class="allnav" id="ss222"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">温度（日）</div>
+                            <div class="allnav" id="ss333"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                        <div class="boxall">
+
+                            <div class="alltitle">湿度（日）</div>
+
+
+                            <div class="allnav" id="ss444">
+
+
+                                <div class="boxfoot"></div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <!-- <style type="text/css">#backImgss{background: url("../img/owell2dd.png");}</style>
+           
+                        <div class="boxall_3d" id="backImgss" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="ss555"></div>
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                        <div class="boxallright">
+                            <div class="alltitle">温度（周）</div>
+                            <div class="allnav" id="ss666"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">湿度（周）</div>
+                            <div class="allnav" id="ss777"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">烟感</div>
+                            <div class="allnav" id="ss888">
+
+                                <div class="sysw">
+
+                                    <a href="#" class="button white bigrounded">烟感1</a>
+                                </div>
+                                <div class="sysw">
+
+                                    <a href="#" class="button white bigrounded">烟感2</a>
+                                </div>
+                                <div class="sysw">
+
+                                    <a href="#" class="button white bigrounded">烟感3</a>
+                                </div>
+                                <div class="sysw">
+
+                                    <a href="#" class="button white bigrounded">烟感4</a>
+                                </div>
+                                <div class="sysw2">
+                                    <div style="color:#fff;font-size:2.5rem; "> 正常</div>
+
+                                </div>
+                                <div class="sysw2">
+                                    <div style="color:#fff;font-size:2.5rem; "> 正常</div>
+
+                                </div>
+                                <div class="sysw2">
+                                    <div style="color:#fff;font-size:2.5rem; "> 正常</div>
+
+                                </div>
+                                <div class="sysw2">
+                                    <div style="color:#fff;font-size:2.5rem; "> 正常</div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">控制</div>
+                            <div class="allnav" id="ss999"></div>
+
+
+                            <div class="shubox3">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+                                <div class='henbox'>新风</div>
+                                <div class='henbox'>空调</div>
+
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+
+                            </div>
+                            <div class="shubox3">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+                                <div class='henbox'>模式</div>
+                                <div class='henbox'>温度</div>
+
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+
+
+                            </div>
+                            <div class="shubox4">
+                                <div class='henbox'></div>
+                                <div class='henbox'></div>
+
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio20" checked onclick="sscontrol1(1)">
+                                        <label><i class="default"></i> 低</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio20" onclick="sscontrol1(2)">
+                                        <label><i class="default"></i> 中</label>
+                                    </div>
+                                    <div class="pretty circle danger" onclick="sscontrol1(3)">
+                                        <input type="radio" name="radio20">
+                                        <label><i class="default"></i> 高</label>
+                                    </div>
+                                </div>
+                                <div class='henbox'>
+                                    <div class="pretty circle primary">
+                                        <input type="radio" name="radio24" checked onclick="sscontrol2(1)">
+                                        <label><i class="default"></i> 低</label>
+                                    </div>
+                                    <div class="pretty circle success">
+                                        <input type="radio" name="radio24" onclick="sscontrol2(2)">
+                                        <label><i class="default"></i> 中</label>
+                                    </div>
+                                    <div class="pretty circle danger">
+                                        <input type="radio" name="radio24" onclick="sscontrol2(3)">
+                                        <label><i class="default"></i> 高</label>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="maincontain maincontain_yingyang">
+
+                <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                        <div class="boxall">
+                            <div class="alltitle">营养</div>
+                            <div class="allnav" id="yy111"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">综合评分</div>
+                            <div class="allnav" id="yy222"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxall">
+                            <div class="alltitle">用餐情况（日）</div>
+                            <div class="allnav" id="yy333"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+                        <div class="boxall">
+                            <div class="alltitle">营养摄入</div>
+                            <div class="allnav" id="yy444"></div>
+                            <div class="boxfoot"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <!-- <style type="text/css">#backImgyy{background: url("../img/owell2dd.png");}</style>
+           
+                        <div class="boxall_3d" id="backImgyy" style="width:100%; height:97.5%; background-size:100%;background-repeat: no-repeat;">
+
+                            <div class="alltitle">全景地图</div>
+                            <div class="allnav3d" id="yy555"></div>
+
+                            <div class="boxfoot"></div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                        <div class="boxallright">
+                            <div class="alltitle">每日菜单</div>
+
+
+                            <style type="text/css">
+                                #backImgcaidan {
+                                    background: url("../img/caidan.png");
+                                }
+                            </style>
+                            <!-- {{-- 此处height可以调整3d框图的高度 --}} -->
+                            <div class="caidanimg" id="backImgcaidan"
+                                style="width:100%; height:100%; background-size:100%;background-repeat: no-repeat;">
+
+
+                                <div class="allnav" id="yy666"></div>
+                            </div>
+
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">果蔬推广</div>
+                            <style type="text/css">
+                                #backImgcaidan {
+                                    background: url("../img/caidan.png");
+                                }
+                            </style>
+                            <!-- {{-- 此处height可以调整3d框图的高度 --}} -->
+                            <div class="caidanimg" id="backImgcaidan"
+                                style="width:100%; height:100%; background-size:100%;background-repeat: no-repeat;">
+
+                                <div class="allnav" id="yy777"></div>
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">用餐情况（周）</div>
+                            <div class="allnav" id="yy888"></div>
+                            <div class="boxfoot"></div>
+                        </div>
+
+                        <div class="boxallright">
+                            <div class="alltitle">充值查询</div>
+                            <style type="text/css">
+                                #backImgcz {
+                                    background: url("../img/chongzhi.png");
+                                }
+                            </style>
+                            <!-- {{-- 此处height可以调整3d框图的高度 --}} -->
+                            <div class="caidanimg" id="backImgcz"
+                                style="width:100%; height:100%; background-size:100%;background-repeat: no-repeat;">
+
+                                <div class="allnav" id="yy777"></div>
+                            </div>
+                            <div class="boxfoot"></div>
+                        </div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <!-- {{--maincontain 用于加载echart--}} -->
+        <div class="maincontain maincontain_jianshen">
+
+            <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                    <div class="boxall">
+                        <div class="alltitle">健身情况</div>
+                        <div class="allnav" id="js111"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">健身排名</div>
+                        <div class="allnav" id="js222"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">健身活动</div>
+                        <div class="allnav" id="js333"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">空气质量</div>
+
+                        <div id="shushiimg" style=" width:100%; height:100%; ">
+
+                            <div class="allnav" id="js444"></div>
+
+                            <div class="boxfoot"></div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <!-- <style type="text/css">#backImgshow{background: url("../img/owell2dd.png");}</style>
+                {{-- 此处height可以调整3d框图的高度 --}}
+                    <div class="boxall_3d" id="backImgshow" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                        <div class="alltitle">全景地图</div>
+                        <div class="allnav3d" id="js555"></div>
+
+                        <div class="boxfoot"></div>
+                    </div>  -->
+                </div>
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                    <div class="boxallright">
+                        <div class="alltitle">培训课程</div>
+
+                        <style type="text/css">
+                            #backImgkechen {
+                                background: url("../img/kechen.png");
+                            }
+                        </style>
+                        <!-- {{-- 此处height可以调整3d框图的高度 --}} -->
+                        <div class="caidanimg" id="backImgkechen"
+                            style="width:100%; height:100%; background-size:100%;background-repeat: no-repeat;">
+
+
+                            <div class="allnav" id="js666"></div>
+                        </div>
+
+
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxallright">
+                        <div class="alltitle">风采展示</div>
+                        <div class="allnav" id="js777"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+
+                    <div class="boxallright">
+                        <div class="alltitle">新风控制</div>
+                        <div class="allnav" id="js888"></div>
+
+                        <div class="shubox3">
+                            <div class='henbox'></div>
+                            <div class='henbox'></div>
+                            <div class='henbox'>新风</div>
+                            <div class='henbox'>空调</div>
+
+                            <div class='henbox'></div>
+                            <div class='henbox'></div>
+
+                        </div>
+                        <div class="shubox3">
+                            <div class='henbox'></div>
+                            <div class='henbox'></div>
+                            <div class='henbox'>模式</div>
+                            <div class='henbox'>温度</div>
+
+                            <div class='henbox'></div>
+                            <div class='henbox'></div>
+
+
+                        </div>
+                        <div class="shubox4">
+                            <div class='henbox'></div>
+                            <div class='henbox'></div>
+
+                            <div class='henbox'>
+                                <div class="pretty circle primary">
+                                    <input type="radio" name="radio27" checked onclick="jscontrol1(1)">
+                                    <label><i class="default"></i> 低</label>
+                                </div>
+                                <div class="pretty circle success">
+                                    <input type="radio" name="radio27" onclick="jscontrol1(2)">
+                                    <label><i class="default"></i> 中</label>
+                                </div>
+                                <div class="pretty circle danger" onclick="jscontrol1(3)">
+                                    <input type="radio" name="radio27">
+                                    <label><i class="default"></i> 高</label>
+                                </div>
+                            </div>
+                            <div class='henbox'>
+                                <div class="pretty circle primary">
+                                    <input type="radio" name="radio30" checked onclick="jscontrol2(1)">
+                                    <label><i class="default"></i> 低</label>
+                                </div>
+                                <div class="pretty circle success">
+                                    <input type="radio" name="radio30" onclick="jscontrol2(2)">
+                                    <label><i class="default"></i> 中</label>
+                                </div>
+                                <div class="pretty circle danger" onclick="jscontrol2(3)">
+                                    <input type="radio" name="radio30">
+                                    <label><i class="default"></i> 高</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+
+                    <div class="boxallright">
+                        <div class="alltitle">历史记录</div>
+                        <div class="allnav" id="js999"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="maincontain maincontain_kangyi">
+
+
+            <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                    <div class="boxall">
+                        <div class="alltitle">疫情上报</div>
+                        <div class="allnav" id="ky111"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">异常监测</div>
+                        <div class="allnav" id="ky222"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">紫外消毒</div>
+                        <div class="allnav" id="ky333"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+                    <div class="boxall">
+                        <div class="alltitle">雾化消毒</div>
+                        <div class="allnav" id="ky444"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-xs-12 col-sm-6">
+                    <!-- <style type="text/css">#backImgky{background: url("../img/owell2dd.png");}</style>
+                {{-- 此处height可以调整3d框图的高度 --}}
+                    <div class="boxall_3d" id="backImgky" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                        <div class="alltitle">全景地图</div>
+                        <div class="allnav3d" id="ky555"></div>
+                        <div class="boxfoot"></div>
+                    </div>  -->
+                </div>
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                    <div class="boxallright">
+                        <div class="alltitle">物资（口罩）</div>
+                        <div class="allnav" id="ky666"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxallright">
+                        <div class="alltitle">物资（防护服）</div>
+                        <div class="allnav" id="ky777"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxallright">
+                        <div class="alltitle">人员</div>
+                        <div class="allnav" id="ky888"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxallright">
+                        <div class="alltitle">实时监控</div>
+                        <div class="allnav" id="ky999">
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="kybutton(1)"> 茶水间1</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="kybutton(2)">茶水间2</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="kybutton(3)">茶水间3</a>
+                            </div>
+
+                            <div class="sysw">
+
+                                <a class="button white bigrounded" onclick="kybutton(4)">办公室</a>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="boxfoot"></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="maincontain maincontain_renyuan">
+
+            <div class="row" style="padding-right: 0px; padding-left:0px; margin-left:0.5px; margin-right:0.5px;">
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+                    <div class="boxall">
+                        <div class="alltitle">人员密度</div>
+                        <div class="allnav" id="rr111"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">办公人数</div>
+                        <div class="allnav" id="rr222"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <div class="boxall">
+                        <div class="alltitle">请假人数</div>
+                        <div class="allnav" id="rr333"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+                    <div class="boxall">
+                        <div class="alltitle">来访人数</div>
+                        <div class="allnav" id="rr444"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <!-- <style type="text/css">#backImgshow{background: url("../img/owell2dd.png");}</style>
+                {{-- 此处height可以调整3d框图的高度 --}}
+                    <div class="boxall_3d" id="backImgshow" style="width:100%; height:97.5%; background-size:100%; -moz-background-size:100%; background-repeat: no-repeat;">
+
+                        <div class="alltitle">全景地图</div>
+                        <div class="allnav3d" id="rr555"></div>
+                        <div class="boxfoot"></div>
+                    </div>  -->
+                </div>
+
+
+                <div class="col-xs-12 col-sm-3" style="padding-left:0px; padding-right: 0px">
+
+
+                    <div class="boxallright">
+
+                        <div class="allnav" id="rr666">
+                            <iframe src="http://192.168.3.10:10800/play.html?channel=2&iframe=yes" width="1400px"
+                                height="768px" allowfullscreen allow="autoplay"></iframe>
+                        </div>
+
+                    </div>
+
+                    <div class="boxallright">
+
+                        <div class="allnav" id="rr777">
+                            <!--  新增视频播放段皮          方子昂   20200522--15：00   -->
+                            <iframe src="http://192.168.3.10:10800/play.html?channel=1&iframe=yes" width="1400px"
+                                height="768px" allowfullscreen allow="autoplay"></iframe>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- 网页主体部分 -->
+
+
+
+
+
+
+
+
+
+
+    <!-- 尾部 -->
+
+    <footer class="footer">
+        <div class="container">
+            <p class="float-left">
+                由中睿智慧应用研究院设计和编码
+            </p>
+            <p class="float-right"><a href="http://go.gzid.com.cn/">联系我们</a></p>
+        </div>
+    </footer>
+
+    <!-- 尾部 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/database.js"></script>
+    <!-- <script type="text/javascript" src="js/51js/superAPI-2.6.0-owell.min.js"></script> -->
+    <script type="text/javascript" src="js/51js/superAPI-2.8.0.min.js"> </script>
+    <script src="js/jtoggler.js" type="text/javascript"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/rely/jquery-3.3.1.min.js"></script>
+    <script type="module" src="js/51js/51control.js"></script>
+
+    <script type="text/javascript" src="js/control.js"></script>
+    <script type="module" src="js/51js/51vr.js"></script>
+    <script type="module" src="js/js.js"></script>
+
+
+
+    <script src="js/slide.js"></script>
+
+    <script src="js/ai.js"></script>
+
+    <script src-="./renderer.js"></script>
+    <script type="module" src="js/charts/kongqi.js"></script>
+
+    <!-- <script src="js/bg.js" type="text/javascript"></script> -->
+    <script type="module" src="js/charts/show.js"></script>
+    <script type="module" src="js/charts/guangqiang.js"></script>
+
+    <script type="module" src="js/charts/shushi.js"></script>
+    <script type="module" src="js/charts/shuizhi.js"></script>
+    <script type="module" src="js/charts/yingyang.js"></script>
+    <script type="module" src="js/charts/jianshen.js"></script>
+    <script type="module" src="js/charts/kangyi.js"></script>
+    <script type="module" src="js/charts/renyuan.js"></script>
+
+
+
+
+
+</body>
+
+</html>

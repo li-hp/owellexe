@@ -1,0 +1,28 @@
+{
+  "name": "owell",
+ 
+
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./ --platform=win32 --arch=x64 --overwrite --asar  "                       
+  },
+  "repository": "https://github.com/electron/owell",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub  //  --extra-resource='./extra'",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^9.1.0"
+  },
+  "dependencies": {
+    "electron-packager": "^15.0.0"
+  }
+}
